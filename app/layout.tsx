@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import { Providers } from "./providers";
+import { fontSans, fontMono } from "../config/fonts"; // ⬅️ import the fonts
 
 export default function RootLayout({
   children,
@@ -7,15 +8,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en">
+    <html
+      suppressHydrationWarning
+      lang="en"
+      className={`${fontSans.variable} ${fontMono.variable}`} // ⬅️ inject font variables
+    >
       <head />
-      <body
-      >
+      <body className="font-sans"> {/* ⬅️ apply the font */}
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div >
-            <main >
-              {children}
-            </main>
+          <div className="w-full">
+            <main>{children}</main>
           </div>
         </Providers>
       </body>
