@@ -2,15 +2,14 @@
 import { cn } from "@/lib/utils";
 import React, { useEffect, useRef, useState } from "react";
 import { createNoise3D } from "simplex-noise";
-
-export const WavyBackground = ({
+export const WavyBackground = ({  
   children,
   className,
   containerClassName,
   colors,
   waveWidth,
   backgroundFill,
-  blur = 7,
+  blur = 3,
   speed = "fast",
   waveOpacity = 0.5,
   ...props
@@ -115,7 +114,8 @@ export const WavyBackground = ({
         "h-screen flex flex-col items-center justify-center overflow-hidden relative ",
         containerClassName
       )}
-    >
+    >   
+
       <canvas
         className="absolute inset-0 z-0"
         ref={canvasRef}

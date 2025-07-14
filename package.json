@@ -9,6 +9,8 @@
     "lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
     "@heroui/button": "2.2.16",
     "@heroui/code": "2.2.12",
     "@heroui/input": "2.4.16",
@@ -21,18 +23,22 @@
     "@heroui/system": "2.4.12",
     "@heroui/theme": "2.4.12",
     "@motionone/utils": "^10.18.0",
+    "@mui/material": "^7.2.0",
     "@react-aria/ssr": "3.9.7",
     "@react-aria/visually-hidden": "3.8.20",
+    "@tsparticles/engine": "^3.8.1",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.8.1",
     "clsx": "^2.1.1",
     "framer-motion": "11.13.1",
     "intl-messageformat": "^10.5.0",
-    "motion": "^12.15.0",
+    "motion": "^12.23.3",
     "next": "^15.3.5",
     "next-themes": "^0.4.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "simplex-noise": "^4.0.3",
-    "tailwind-merge": "^3.3.0"
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "15.0.4",

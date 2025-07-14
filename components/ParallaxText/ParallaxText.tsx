@@ -76,9 +76,9 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
 
 export default function App() {
   return (
-    <section className="pt-8">
-      <ParallaxText baseVelocity={-5}>Framer Motion</ParallaxText>
-      <ParallaxText baseVelocity={5}>Scroll velocity</ParallaxText>
+    <section className="pt-[17rem] pb-[17rem]">
+      <ParallaxText baseVelocity={-5}>React.js / Tailwind CSS / Next.js / </ParallaxText>
+      <ParallaxText baseVelocity={-5}>Node.js / Express.js /RESTful API Development / GraphQL /</ParallaxText>
     </section>
   );
 }
