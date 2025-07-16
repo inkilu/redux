@@ -9,8 +9,8 @@ import ClientOnly from "@/components/ClientOnly";
 export default function Home() {
   return (
     <>
-         <div className="relative w-full h-100 overflow-hidden z-10">
-        <WavyBackground className="max-w-4xl mx-auto pb-40">
+         <div className="relative w-full h-[700px] overflow-hidden z-10">
+        <WavyBackground className="max-w-4xl mx-auto pb-20">
           <p className="text-2xl md:text-4xl lg:text-7xl text-white font-bold inter-var text-center">
             Gautham Krishna M
           </p>
