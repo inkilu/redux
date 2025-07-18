@@ -89,7 +89,7 @@ export const FlipWords = ({
                 {letter}
               </motion.span>
             ))}
-            <span className="inline-block">&nbsp;</span>
+            <span className="inline-block"></span>
           </motion.span>
         ))}
       </motion.div>
