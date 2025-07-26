@@ -2,7 +2,7 @@
 import { cn } from "@/lib/utils";
 import React, { useEffect, useRef, useState } from "react";
 import { createNoise3D } from "simplex-noise";
-export const WavyBackground = ({  
+export const WavyBackground = ({
   children,
   className,
   containerClassName,
@@ -44,7 +44,6 @@ export const WavyBackground = ({
         return 0.001;
     }
   };
-
   const init = () => {
     canvas = canvasRef.current;
     ctx = canvas.getContext("2d");
@@ -81,7 +80,6 @@ export const WavyBackground = ({
       ctx.closePath();
     }
   };
-
   let animationId: number;
   const render = () => {
     ctx.fillStyle = backgroundFill || "black";
@@ -103,18 +101,18 @@ export const WavyBackground = ({
     // I'm sorry but i have got to support it on safari.
     setIsSafari(
       typeof window !== "undefined" &&
-        navigator.userAgent.includes("Safari") &&
-        !navigator.userAgent.includes("Chrome")
+      navigator.userAgent.includes("Safari") &&
+      !navigator.userAgent.includes("Chrome")
     );
   }, []);
 
   return (
     <div
       className={cn(
-        "h-screen flex flex-col items-center justify-center overflow-hidden relative ",
+        "h-screen flex flex-col items-center justify-center overflow-hidden relative",
         containerClassName
       )}
-    >   
+    >
 
       <canvas
         className="absolute inset-0 z-0"
