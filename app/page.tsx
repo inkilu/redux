@@ -4,6 +4,8 @@ import ParallaxText from "@/components/ParallaxText";
 import { Meteors } from "@/components/MeteorsDemo/ui/meteors";
 import MeSection from "@/components/MeSection/MeSection";
 import ClientOnly from "@/components/ClientOnly";
+import GalaxySection from "@/components/Galaxy/GalaxySection";
+import Expandable from "@/components/Expandable/Expandable";
 
 export default async function Home() {
   return (
@@ -21,6 +23,7 @@ export default async function Home() {
       </div>
       <MeSection />
       <ParallaxText />
+      <GalaxySection/>
     </>
   );
 }

@@ -1,0 +1,28 @@
+.galaxy-container {
+  position: relative;
+  width: 100%;
+  height: 100%; /* Or 100vh if full screen */
+  overflow: hidden;
+}
+
+.galaxy-background {
+  position: absolute;
+  inset: 0; /* top:0, right:0, bottom:0, left:0 */
+}
+
+.galaxy-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
+  z-index: 1; /* Above the canvas */
+}
+
+.galaxy-overlay {
+  pointer-events: none; /* pass through clicks/hover by default */
+}
+
+.galaxy-overlay > * {
+  pointer-events: auto; /* but children can still interact */
+}

@@ -8,8 +8,8 @@ interface WindowSize {
 
 export function useWindowSize(): WindowSize {
   const [size, setSize] = useState<WindowSize>({
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: 0,
+    height: 0,
   });
 
   useEffect(() => {
@@ -19,6 +19,9 @@ export function useWindowSize(): WindowSize {
         height: window.innerHeight,
       });
     }
+
+    // Call once to set initial size
+    handleResize();
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);

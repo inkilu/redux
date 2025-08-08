@@ -1,11 +1,10 @@
 
 "use client";
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Grid from '@mui/material/Grid';
 import { ProfileCard } from '@/components/ProfileCard/ProfileCard';
 import { FlipWordsDemo } from '@/components/FlipWords/FlipWords';
 import { useWindowSize } from '@/lib/useWindowSize';
-import Typography from '@mui/material/Typography';
 const MeSection = () => {
     const { width } = useWindowSize();
 
