@@ -23,7 +23,7 @@ export default async function Home() {
       </div>
       <MeSection />
       <ParallaxText />
-      <GalaxySection/>
+      <GalaxySection />
     </>
   );
 }

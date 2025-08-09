@@ -1,31 +1,43 @@
-'use client'
-import { HTMLAttributes, useEffect, useState } from "react";
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import WaveReveal from "@/components/WaveReveal/WaveReveal";
 import { cn } from "@/lib/utils";
 
-interface ImageProps extends HTMLAttributes<HTMLDivElement> {
-  item: { image: string; title: string };
+interface Item {
+  image: string;
+  title: string;
+}
+
+interface ImageProps {
+  item: Item;
   index: number;
   activeItem: number;
+  onHover: () => void;
+  onLeave: () => void;
 }
 
 interface ExpandableProps {
-  list?: { image: string; title: string }[];
+  list?: Item[];
   autoPlay?: boolean;
   className?: string;
 }
 
-const List = ({ item, className, index, activeItem, ...props }: ImageProps) => {
+const ROUTES = ["/experience", "/projects", "/about"];
+
+const List = ({ item, index, activeItem, onHover, onLeave }: ImageProps) => {
+  const dynamicRoute = ROUTES[index] || "/";
+
   return (
-    <div
+    <Link
+      href={dynamicRoute}
       className={cn(
-        "relative flex h-full w-20 min-w-10 cursor-pointer overflow-hidden rounded-md transition-all delay-0 duration-300 ease-in-out",
-        {
-          "flex-grow": index === activeItem,
-        },
-        className,
+        "relative flex h-full w-20 min-w-10 cursor-pointer overflow-hidden rounded-md transition-all duration-300 ease-in-out",
+        { "flex-grow": index === activeItem }
       )}
-      {...props}
+      onMouseEnter={onHover}
+      onMouseLeave={onLeave}
     >
       <img
         src={item.image}
@@ -37,68 +49,70 @@ const List = ({ item, className, index, activeItem, ...props }: ImageProps) => {
       {index === activeItem && (
         <div className="absolute bottom-4 left-4 min-w-fit text-white md:bottom-8 md:left-8">
           <WaveReveal
-            duration="2000ms"
+            duration="750ms"
             className="items-start justify-start text-xl sm:text-2xl md:text-6xl"
             text={item.title}
             direction="up"
           />
         </div>
       )}
-    </div>
+    </Link>
   );
 };
 
-const items = [
-  {
-    image:
-      "https://images.unsplash.com/photo-1541753236788-b0ac1fc5009d?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3",
-    title: "Mountains",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1718027808460-7069cf0ca9ae?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3",
-    title: "Great Wall of China",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1584968173934-bc0b588eb806?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3",
-    title: "Texture & Patterns",
-  },
-];
+export default function Expandable({
+  list,
+  autoPlay = true,
+  className,
+}: ExpandableProps) {
+  const items = useMemo<Item[]>(
+    () =>
+      list || [
+        {
+          image:
+            "https://images.unsplash.com/photo-1604964432806-254d07c11f32?q=80&w=880&auto=format&fit=crop",
+          title: "Experience",
+        },
+        {
+          image:
+            "https://images.unsplash.com/photo-1526925539332-aa3b66e35444?q=80&w=765&auto=format&fit=crop",
+          title: "Projects",
+        },
+        {
+          image:
+            "https://images.unsplash.com/photo-1584968173934-bc0b588eb806?q=80&w=1000&auto=format&fit=crop",
+          title: "<Me/>",
+        },
+      ],
+    [list]
+  );
 
-export default function Expandable({ list = items, autoPlay = true, className }: ExpandableProps) {
   const [activeItem, setActiveItem] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
-    if (!autoPlay) {
-      return;
-    }
+    if (!autoPlay || isHovering) return;
 
-    const interval = setInterval(() => {
-      if (!isHovering) {
-        setActiveItem((prev) => (prev + 1) % list.length);
-      }
-    }, 5000);
-
+    const interval = setInterval(
+      () => setActiveItem((prev) => (prev + 1) % items.length),
+      5000
+    );
     return () => clearInterval(interval);
-  }, [autoPlay, list.length, isHovering]);
+  }, [autoPlay, isHovering, items.length]);
 
   return (
     <div className={cn("flex h-96 w-full gap-1", className)}>
-      {list.map((item, index) => (
+      {items.map((item, index) => (
         <List
           key={item.title}
           item={item}
           index={index}
           activeItem={activeItem}
-          onMouseEnter={() => {
+          onHover={() => {
             setActiveItem(index);
             setIsHovering(true);
           }}
-          onMouseLeave={() => {
-            setIsHovering(false);
-          }}
+          onLeave={() => setIsHovering(false)}
         />
       ))}
     </div>
