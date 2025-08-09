@@ -30,7 +30,7 @@ const List = ({ item, index, activeItem, onHover, onLeave }: ImageProps) => {
   const dynamicRoute = ROUTES[index] || "/";
 
   return (
-    <Link
+    <a
       href={dynamicRoute}
       className={cn(
         "relative flex h-full w-20 min-w-10 cursor-pointer overflow-hidden rounded-md transition-all duration-300 ease-in-out",
@@ -56,7 +56,7 @@ const List = ({ item, index, activeItem, onHover, onLeave }: ImageProps) => {
           />
         </div>
       )}
-    </Link>
+    </a>
   );
 };
 
