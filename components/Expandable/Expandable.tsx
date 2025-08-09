@@ -37,7 +37,7 @@ const List = ({ item, className, index, activeItem, ...props }: ImageProps) => {
       {index === activeItem && (
         <div className="absolute bottom-4 left-4 min-w-fit text-white md:bottom-8 md:left-8">
           <WaveReveal
-            duration="1000ms"
+            duration="2000ms"
             className="items-start justify-start text-xl sm:text-2xl md:text-6xl"
             text={item.title}
             direction="up"

@@ -26,3 +26,7 @@
 .galaxy-overlay > * {
   pointer-events: auto; /* but children can still interact */
 }
+
+.fill-mode-forwards {
+  animation-fill-mode: forwards;
+}
