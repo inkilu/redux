@@ -1,3 +1,4 @@
+/// <reference types="@react-types/shared" />
 "use client";
 
 import type { ThemeProviderProps } from "next-themes";

@@ -4,10 +4,10 @@ const connectDB = require("./config/db");
 
 const PORT = process.env.PORT || 5000;
 
-// Connect to DB
-// connectDB();
+// Connect to DB uncomment to connect to db
+// connectDB(); 
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on  http://localhost:${PORT}`);
 });

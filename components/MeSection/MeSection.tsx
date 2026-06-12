@@ -17,20 +17,20 @@ const MeSection = () => {
         smallScreen:{
             txt1: "Hi, I'm Gautham, a JavaScript developer building",
             txt2: "web applications. I specialize in",
-            txt3:"I love turning ideas into polished digital experiences."
+            txt3:", I love turning ideas into polished digital experiences."
         },
     }
 
     return (
         <>
             <Grid container spacing={1} alignItems="center">
-                <Grid size={{ xs: 12, md: 5 }} className='max-md:mb-48'>
+                <Grid size={{ xs: 12, md: 5 }} className='max-md:mb-8'>
                     <ProfileCard />
                 </Grid>
-                {width > 899 ? <Grid size={{ xs: 12, md: 7 }} className='sm:mx-auto'>
+                {width > 899 ? <Grid size={{ xs: 12, md: 7 }} className='sm:mx-auto px-6 md:pl-0 md:pr-16 lg:pr-24'>
                     <FlipWordsDemo TEXTS={TEXTS.bigScreen} />
                 </Grid> :
-                    <Grid size={{ xs: 12, md: 7 }} className='sm:mx-auto'>
+                    <Grid size={{ xs: 12, md: 7 }} className='sm:mx-auto px-6 md:pl-0 md:pr-16 lg:pr-24'>
                         <FlipWordsDemo TEXTS={TEXTS.smallScreen} />
                     </Grid>
                 }
